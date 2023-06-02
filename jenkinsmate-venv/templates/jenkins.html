@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jenkins-Mate</title>
+	<style>
+		body {
+			background-color: #F0F0F0;
+			font-family: Arial, sans-serif;
+		}
+			div {
+				background-color: #FFFFFF;
+				padding: 20px;
+				margin: 50px auto;
+				width: 80%;
+				border: 1px solid #CCCCCC;
+				box-shadow: 0 0 10px #CCCCCC;
+			}
+			
+			h1 {
+				color: #1E90FF;
+				text-align: center;
+			}
+			
+			table {
+				border-collapse: collapse;
+				width: 100%;
+			}
+			
+			th, td {
+				padding: 10px;
+				text-align: left;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			
+			th {
+				background-color: #1E90FF;
+				color: #FFFFFF;
+			}
+			
+			ul {
+				list-style-type: none;
+				padding-left: 0;
+				margin-top: 20px;
+			}
+			
+			li {
+				margin-bottom: 10px;
+				padding: 10px;
+				background-color: #F0F0F0;
+				border: 1px solid #CCCCCC;
+			}
+			
+    </style>
+</head>
+
+<body>
+	<div>
+		
+
+		<br>
+		<h2>Jenkins-2</h2><p> Version : {{headers2['X-Jenkins']}} ({{cmpb}})</p>
+		<p> Total Count of Jobs: {{count2}}</p>
+		<table>
+			<thead>
+			  <tr>
+				<th>Job Name</th>
+				<th>lastSuccessfulBuildNum</th>
+				<th>Q-id</th>
+				<th>Duration</th>
+				<th>Url</th>
+				<th>lastBuildResult</th>
+				<th>lastFailedBuildNum</th>
+			  </tr>
+			</thead>
+			<tbody>
+			{% for job in jobs2 %}
+			  <tr>
+				<td>{{job['name']}}</td>
+				<td>{{job['lastSuccessfulBuildnum']}}</td>
+				<td>{{job['lastSuccessfulBuildqid']}}</td>
+				<td>{{job['lastSuccessfulBuilddur']}}</td>
+				<td>{{job['lastSuccessfulBuildurl']}}</td>
+				<td>{{job['lastBuildResult']}}</td>
+				<td>{{job['lastFailedBuildNum']}}</td>				
+			  </tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
